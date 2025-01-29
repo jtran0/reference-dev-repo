@@ -1,0 +1,26 @@
+services:
+  devcontainer:
+    container_name: devcontainer
+    build:
+      context: .
+      args:
+        USERNAME: ${USER}
+        UID: ${UID:-1000}
+        GID: ${GID:-1000}
+    user: "${UID:-1000}:${GID:-1000}"
+    volumes:
+      # Required mounts
+      - ..:/workspace # Mount the root of this repo to the container's `/workspace` directory
+      - "${HOME}/.cache/bazel:/home/${USER}/.cache/bazel" # Mount the local's `~/.cache/bazel` directory for Bazel
+      # Extra mounts
+      - .bash_aliases:/home/${USER}/.bash_aliases # Source custom aliases
+      ## Reuse personal resources
+      - ${HOME}/.ssh:/home/${USER}/.ssh # Reuse personal SSH credentials
+      - ${HOME}/.bash_history:/home/${USER}/.bash_history # Preserve personal bash history
+      ## Expose access to the local filesystem
+      - ${HOME}:/mnt/${USER}
+      - /:/mnt/host
+    working_dir: /workspace # Set the current directory to the root of this repo
+    stdin_open: true
+    tty: true
+    entrypoint: [ "/bin/bash" ]

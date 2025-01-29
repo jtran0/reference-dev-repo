@@ -1,0 +1,32 @@
+# Apt
+apt-transport-https
+gnupg
+curl
+
+# Bazel
+unzip
+zip
+default-jdk
+
+# Python
+python3
+python3-pip
+python-is-python3
+
+# C/C++
+build-essential
+clang-format
+
+# Protobuf & gRPC
+protobuf-compiler
+
+# Uncategorized
+file
+git
+iproute2
+nano
+net-tools
+openssh-client
+psmisc
+vim
+# Add more apt installables here

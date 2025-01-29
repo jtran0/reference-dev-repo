@@ -1,0 +1,26 @@
+###############################################################################
+# Bazel now uses Bzlmod by default to manage external dependencies.
+# Please consider migrating your external dependencies from WORKSPACE to MODULE.bazel.
+#
+# For more details, please check https://github.com/bazelbuild/bazel/issues/18958
+###############################################################################
+
+# For a full list of available Bazel deps, visit: https://registry.bazel.build/
+
+### Protobuf & gRPC ###
+# Protobuf - General
+
+# gRPC - General
+# - https://github.com/rules-proto-grpc/rules_proto_grpc
+
+# gRPC - C++
+# - https://registry.bazel.build/modules/rules_proto_grpc_cpp
+# - https://rules-proto-grpc.com/en/stable/lang/cpp.html#installation
+bazel_dep(name = "rules_proto_grpc_cpp", version = "5.0.0")
+bazel_dep(name = "toolchains_protoc", version = "0.3.6")
+
+protoc = use_extension("@toolchains_protoc//protoc:extensions.bzl", "protoc")
+protoc.toolchain(
+    google_protobuf = "com_google_protobuf",
+    version = "v27.1",
+)

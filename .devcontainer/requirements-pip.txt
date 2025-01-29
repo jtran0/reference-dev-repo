@@ -1,0 +1,4 @@
+black
+prettytable
+pytest
+# Add more pip installables here

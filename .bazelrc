@@ -1,0 +1,3 @@
+# TODO: https://github.com/rules-proto-grpc/rules_proto_grpc/issues/390
+# Disable this workaround for now; it's only needed for Bazel 8.0.1 and possibly newer
+#build --noincompatible_disallow_ctx_resolve_tools
