@@ -61,6 +61,12 @@ bazel run projects/examples/grpc:example_grpc_client
 # Received response: "Test message (counter: 0)" (Status Code: 200)
 ```
 
+**Optional:** Try running the Python gRPC client if you're interested in how gRPC works in Python.
+
+```bash
+bazel run //projects/examples/grpc:example_grpc_client_py
+```
+
 3. Observe how the gRPC client connects to the server then repeatedly calls a method.
 
 ## Manually Testing The Server With a Command Line gRPC Client

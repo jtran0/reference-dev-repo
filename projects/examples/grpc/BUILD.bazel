@@ -20,3 +20,12 @@ cc_binary(
         "@grpc//:grpc++_reflection",
     ],
 )
+
+py_binary(
+    name = "example_grpc_client_py",
+    srcs = ["example_grpc_client.py"],
+    main = "example_grpc_client.py",
+    deps = [
+        "//projects/examples/grpc/proto:example_python_grpc",
+    ],
+)

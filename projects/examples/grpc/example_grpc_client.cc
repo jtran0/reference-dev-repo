@@ -36,7 +36,7 @@ class ExampleGrpcClient {
   }
 
   /**
-   * Send a request
+   * Transact a request for a response
    * @param[in] message: Any human readable message
    * @return true if the message was able to connect and transact a request/response
    */

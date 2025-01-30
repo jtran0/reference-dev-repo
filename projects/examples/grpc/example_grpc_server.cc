@@ -36,6 +36,10 @@ class RequestServiceImpl final : public com::example::grpc::RequestService::Serv
  */
 class ExampleGrpcServer {
  public:
+  /**
+   * @param[in] addr: Listen address to bind
+   * @param[in] port: Listen port to bind
+   */
   ExampleGrpcServer(const std::string &addr, uint16_t port) : addr_(addr), port_(port) {}
 
   /**
