@@ -24,9 +24,11 @@ protobuf-compiler
 file
 git
 iproute2
+iputils-ping
 nano
 net-tools
 openssh-client
 psmisc
 vim
+wget
 # Add more apt installables here

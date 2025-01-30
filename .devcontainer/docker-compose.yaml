@@ -8,6 +8,7 @@ services:
         UID: ${UID:-1000}
         GID: ${GID:-1000}
     user: "${UID:-1000}:${GID:-1000}"
+    network_mode: "host"
     volumes:
       # Required mounts
       - ..:/workspace # Mount the root of this repo to the container's `/workspace` directory

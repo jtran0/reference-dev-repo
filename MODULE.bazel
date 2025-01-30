@@ -7,11 +7,15 @@
 
 # For a full list of available Bazel deps, visit: https://registry.bazel.build/
 
+### Abseil ###
+bazel_dep(name = "abseil-cpp", version = "20240116.0")
+
 ### Protobuf & gRPC ###
 # Protobuf - General
 
 # gRPC - General
 # - https://github.com/rules-proto-grpc/rules_proto_grpc
+bazel_dep(name = "grpc", version = "1.65.0")
 
 # gRPC - C++
 # - https://registry.bazel.build/modules/rules_proto_grpc_cpp

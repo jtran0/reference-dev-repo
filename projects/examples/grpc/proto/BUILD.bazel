@@ -1,0 +1,20 @@
+# References
+# - https://github.com/rules-proto-grpc/rules_proto_grpc/blob/master/examples/cpp/cpp_grpc_library/BUILD.bazel
+
+load("@rules_proto_grpc_cpp//:defs.bzl", "cc_grpc_compile", "cc_grpc_library")
+
+cc_grpc_library(
+    name = "example_cc_grpc",
+    protos = [":example_proto"],
+    visibility = ["//visibility:public"],
+)
+
+proto_library(
+    name = "example_proto",
+    srcs = ["example.proto"],
+)
+
+cc_grpc_compile(
+    name = "example_cc_grpc_compile",
+    protos = [":example_proto"],
+)

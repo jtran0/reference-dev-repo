@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package com.example.grpc;
+
+// References:
+// - https://grpc.io/docs/languages/cpp/basics/#defining-the-service
+service RequestService {
+  // Send a request containing a message
+  // Return a response containing an HTTP status code and an echoed message
+  rpc Send(Request) returns (Response);
+}
+
+message Request {
+  // Any human readable message
+  string msg = 1;
+}
+
+message Response {
+  // HTTP status code: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+  int32 status_code = 1;
+  // Echo the same message that was received in the request
+  string echo_msg = 2;
+}

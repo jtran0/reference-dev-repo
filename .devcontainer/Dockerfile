@@ -14,15 +14,18 @@ RUN pip install --no-cache-dir --break-system-packages -r /tmp/requirements-pip.
 ## https://bazel.build/install/ubuntu
 RUN curl -fsSL https://bazel.build/bazel-release.pub.gpg | gpg --dearmor -o /usr/share/keyrings/bazel-archive-keyring.gpg && \
   echo "deb [arch=amd64 signed-by=/usr/share/keyrings/bazel-archive-keyring.gpg] https://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list && \
-  apt-get update && apt-get install -y \
-  bazel-7.4.1 \
-  && \
+  apt-get update && apt-get install -y bazel-7.4.1 && \
   ln -s /usr/bin/bazel-7.4.1 /usr/bin/bazel
 
 # Install Bazel Buildifier
 ## https://github.com/bazelbuild/buildtools/releases
 RUN curl -Lo /usr/local/bin/buildifier https://github.com/bazelbuild/buildtools/releases/download/v8.0.1/buildozer-linux-amd64 && \
   chmod +x /usr/local/bin/buildifier
+
+# Install gRPC curl-like command line tool
+## https://github.com/fullstorydev/grpcurl/releases
+RUN wget https://github.com/fullstorydev/grpcurl/releases/download/v1.9.2/grpcurl_1.9.2_linux_amd64.deb --directory-prefix /tmp && \
+  apt install -y /tmp/grpcurl_1.9.2_linux_amd64.deb
 
 # Set up Unix user/group
 ## Replace uid=1000(ubuntu) and gid=1000(ubuntu) to match the host's <user>:<group> names
